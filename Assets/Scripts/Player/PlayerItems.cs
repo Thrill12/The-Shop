@@ -24,7 +24,7 @@ public class PlayerItems : MonoBehaviour
         {
             if(head.itemEquipped != null)
             {
-                head.UnequipItem(head.itemEquipped);
+                UnequipItem(i);
                 head.EquipItem(i);
             }
             else
@@ -36,7 +36,7 @@ public class PlayerItems : MonoBehaviour
         {
             if (chest.itemEquipped != null)
             {
-                chest.UnequipItem(chest.itemEquipped);
+                UnequipItem(i);
                 chest.EquipItem(i);
             }
             else
@@ -48,7 +48,7 @@ public class PlayerItems : MonoBehaviour
         {
             if (boots.itemEquipped != null)
             {
-                boots.UnequipItem(boots.itemEquipped);
+                UnequipItem(i);
                 boots.EquipItem(i);
             }
             else
@@ -79,6 +79,17 @@ public class PlayerItems : MonoBehaviour
             if (boots.itemEquipped != null)
             {
                 boots.UnequipItem(i);
+            }
+        }       
+    }
+
+    public void UnequipInSlot(BaseItem.Slot slot)
+    {
+        foreach (UIItemHolder holder in holders)
+        {
+            if (holder.itemHeld.itemSlot == slot && holder.itemHeld.isEquipped == true)
+            {
+                holder.Unequip();
             }
         }
     }

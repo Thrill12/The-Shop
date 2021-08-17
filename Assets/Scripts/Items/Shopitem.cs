@@ -5,13 +5,11 @@ using UnityEngine;
 public class Shopitem : UIItemHolder
 {
     PrefabManager pf;
-    PlayerItems items;
 
     public override void Start()
     {
         base.Start();
         pf = GameObject.FindGameObjectWithTag("PrefabManager").GetComponent<PrefabManager>();
-        items = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
     }
 
     public void Buy()

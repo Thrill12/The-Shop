@@ -20,6 +20,6 @@ public class PrefabManager : MonoBehaviour
     {
         GameObject obj = Instantiate(uiItem, itemInventory.transform);
         obj.GetComponent<UIItemHolder>().itemHeld = Instantiate(i);
-        items.holders.Add(obj);
+        items.holders.Add(obj.GetComponent<UIItemHolder>());
     }
 }

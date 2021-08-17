@@ -903,7 +903,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66343b38e22bc2f41962b77b709497c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEquipped: {fileID: 0}
+  itemEquipped: {fileID: 11400000, guid: 12f7230119c96054baae41394c415739, type: 2}
 --- !u!224 &566341803 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5080611511370228808, guid: b1b71eef891d0d34f9a49537a43418fb, type: 3}
@@ -943,6 +943,7 @@ MonoBehaviour:
   boots: []
   itemInventory: {fileID: 508370877}
   uiItem: {fileID: 8302510439557574909, guid: a556bfa7a969ba5488c489f78b388043, type: 3}
+  items: {fileID: 0}
 --- !u!4 &668364414
 Transform:
   m_ObjectHideFlags: 0
@@ -1338,7 +1339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66343b38e22bc2f41962b77b709497c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEquipped: {fileID: 0}
+  itemEquipped: {fileID: 11400000, guid: f87f04502591819479bb8540779f2815, type: 2}
 --- !u!1 &1579592006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66343b38e22bc2f41962b77b709497c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemEquipped: {fileID: 0}
+  itemEquipped: {fileID: 11400000, guid: d94e45cc2e99863419b5f53e4aaa92e7, type: 2}
 --- !u!1 &1687605180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,6 +1634,7 @@ MonoBehaviour:
   boots: {fileID: 1351969615}
   itemsInInventory: []
   itemsEquipped: []
+  holders: []
   inventory: {fileID: 508370877}
 --- !u!1 &1752858961
 GameObject:

@@ -12,7 +12,8 @@ public class UIItemHolder : MonoBehaviour
     private TMP_Text itemValue;
     private Image itemIcon;
 
-    private PlayerItems items;
+    [HideInInspector]
+    public PlayerItems items;
     private Image backgorundImage;
 
     public virtual void Start()
@@ -37,19 +38,20 @@ public class UIItemHolder : MonoBehaviour
         }
         else
         {
-            
+            Equip();
         }
     }
 
     public void Equip()
     {
+        items.UnequipInSlot(itemHeld.itemSlot);
         items.EquipItem(itemHeld);
         backgorundImage.color = Color.green;
     }
 
     public void Unequip()
     {
-        items.UnequipItem(itemHeld);
         backgorundImage.color = Color.white;
+        items.UnequipItem(itemHeld);
     }
 }

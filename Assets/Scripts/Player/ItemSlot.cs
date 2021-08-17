@@ -11,6 +11,7 @@ public class ItemSlot : MonoBehaviour
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        rend.sprite = itemEquipped.itemIcon;
     }
 
     public void EquipItem(BaseItem i)

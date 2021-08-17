@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: YellowChest
   m_EditorClassIdentifier: 
   itemName: Yellow Plate
-  itemIcon: {fileID: 21300000, guid: 08558096e723c3049bda4b1a869e32fa, type: 3}
+  itemIcon: {fileID: 21300000, guid: 61ea7b6a759b6d44c9038c11615daefa, type: 3}
   itemValue: 100
   itemSlot: 1
+  isEquipped: 1
