@@ -10,6 +10,9 @@ public class BaseItem : ScriptableObject
     public float itemValue;
     public Slot itemSlot;
 
+    [HideInInspector]
+    public bool isEquipped = false;
+
     public enum Slot
     {
         Head,

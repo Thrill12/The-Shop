@@ -16,14 +16,14 @@ public class ItemSlot : MonoBehaviour
     public void EquipItem(BaseItem i)
     {
         itemEquipped = i;
-
+        i.isEquipped = true;
         rend.sprite = i.itemIcon;
     }
 
-    public void UnequipItem()
+    public void UnequipItem(BaseItem i)
     {
         itemEquipped = null;
-
+        i.isEquipped = false;
         rend.sprite = null;
     }
 }

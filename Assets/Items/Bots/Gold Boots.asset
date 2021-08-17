@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e608199ecd9e534c86f5d6149554eb4, type: 3}
-  m_Name: Gift Helmet
+  m_Name: Gold Boots
   m_EditorClassIdentifier: 
-  itemName: Gift Helmet
-  itemIcon: {fileID: 21300000, guid: cd1c8a2a05c52884fa6d575b7a41eb72, type: 3}
-  itemValue: 150
-  itemSlot: 0
+  itemName: Gold Boots
+  itemIcon: {fileID: 21300000, guid: 17b7c9091e722cb4888dd061bb2c6115, type: 3}
+  itemValue: 500
+  itemSlot: 2
