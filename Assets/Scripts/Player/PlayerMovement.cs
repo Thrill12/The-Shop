@@ -9,23 +9,35 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer rend;
 
+    private Animator anim;
     public InputManager input;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if(rb.velocity.x > 0)
+        if(rb.velocity.magnitude != 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            if (rb.velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-2, 2, 2);
+            }
+            else
+            {
+                transform.localScale = new Vector3(2, 2, 2);
+            }
+
+            anim.SetBool("IsWalking", true);
+            
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            anim.SetBool("IsWalking", false);
         }
     }
 

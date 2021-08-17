@@ -18,13 +18,18 @@ public class PlayerItems : MonoBehaviour
 
     public GameObject inventory;
 
+    private void Start()
+    {
+        holders = new List<UIItemHolder>();
+    }
+
     public void EquipItem(BaseItem i)
     {
         if(i.itemSlot == BaseItem.Slot.Head)
         {
             if(head.itemEquipped != null)
             {
-                UnequipItem(i);
+                UnequipInSlot(i.itemSlot);
                 head.EquipItem(i);
             }
             else
@@ -36,7 +41,7 @@ public class PlayerItems : MonoBehaviour
         {
             if (chest.itemEquipped != null)
             {
-                UnequipItem(i);
+                UnequipInSlot(i.itemSlot);
                 chest.EquipItem(i);
             }
             else
@@ -48,7 +53,7 @@ public class PlayerItems : MonoBehaviour
         {
             if (boots.itemEquipped != null)
             {
-                UnequipItem(i);
+                UnequipInSlot(i.itemSlot);
                 boots.EquipItem(i);
             }
             else

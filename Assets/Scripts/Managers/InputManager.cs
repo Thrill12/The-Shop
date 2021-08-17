@@ -11,8 +11,8 @@ public class InputManager : MonoBehaviour
 
     public void Update()
     {
-        inputX = Input.GetAxis("Horizontal");
-        inputY = Input.GetAxis("Vertical");
+        inputX = Input.GetAxisRaw("Horizontal");
+        inputY = Input.GetAxisRaw("Vertical");
 
         movementVector = new Vector2(inputX, inputY);
     }

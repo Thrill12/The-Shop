@@ -11,7 +11,13 @@ public class ItemSlot : MonoBehaviour
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
-        rend.sprite = itemEquipped.itemIcon;
+
+        if(itemEquipped != null)
+        {
+            rend.sprite = itemEquipped.itemIcon;
+            itemEquipped = Instantiate(itemEquipped);
+            itemEquipped.isEquipped = false;
+        }
     }
 
     public void EquipItem(BaseItem i)
@@ -23,8 +29,8 @@ public class ItemSlot : MonoBehaviour
 
     public void UnequipItem(BaseItem i)
     {
-        itemEquipped = null;
         i.isEquipped = false;
+        itemEquipped = null;       
         rend.sprite = null;
     }
 }

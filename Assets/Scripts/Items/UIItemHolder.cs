@@ -19,7 +19,7 @@ public class UIItemHolder : MonoBehaviour
     public virtual void Start()
     {
         itemName = transform.Find("ItemName").GetComponent<TMP_Text>();
-        itemValue = transform.Find("ItemValue").GetComponent<TMP_Text>();
+        itemValue = transform.Find("CoinsIcon").transform.Find("ItemValue").GetComponent<TMP_Text>();
         itemIcon = transform.Find("ItemIcon").GetComponent<Image>();
 
         items = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerItems>();
@@ -28,6 +28,20 @@ public class UIItemHolder : MonoBehaviour
         itemName.text = itemHeld.itemName;
         itemValue.text = itemHeld.itemValue.ToString();
         itemIcon.sprite = itemHeld.itemIcon;
+
+        itemHeld.isEquipped = false;
+    }
+
+    private void Update()
+    {
+        if (itemHeld.isEquipped)
+        {
+            backgorundImage.color = Color.green;
+        }
+        else
+        {
+            backgorundImage.color = Color.white;
+        }
     }
 
     public void ToggleEquip()
@@ -46,12 +60,10 @@ public class UIItemHolder : MonoBehaviour
     {
         items.UnequipInSlot(itemHeld.itemSlot);
         items.EquipItem(itemHeld);
-        backgorundImage.color = Color.green;
     }
 
     public void Unequip()
     {
-        backgorundImage.color = Color.white;
         items.UnequipItem(itemHeld);
     }
 }
