@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
 
     private Rigidbody2D rb;
-    private SpriteRenderer rend;
 
     private Animator anim;
     public InputManager input;
@@ -15,8 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rend = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()

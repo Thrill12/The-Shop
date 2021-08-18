@@ -5,10 +5,12 @@ using UnityEngine;
 public class Merchant : MonoBehaviour
 {
     public GameObject shopDisplay;
+    public GameObject inventory;
 
     private void Start()
     {
         shopDisplay.SetActive(false);
+        inventory.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -16,6 +18,7 @@ public class Merchant : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             shopDisplay.SetActive(true);
+            inventory.SetActive(true);
         }
     }
 
@@ -24,6 +27,7 @@ public class Merchant : MonoBehaviour
         if (collision.transform.CompareTag("Player"))
         {
             shopDisplay.SetActive(false);
+            inventory.SetActive(false);
         }
     }
 }

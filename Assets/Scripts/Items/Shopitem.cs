@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class Shopitem : UIItemHolder
 {
-    PrefabManager pf;
     PlayerMoneys moneys;
 
     public override void Start()
     {
         base.Start();
-        pf = GameObject.FindGameObjectWithTag("PrefabManager").GetComponent<PrefabManager>();
         moneys = items.gameObject.GetComponent<PlayerMoneys>();
     }
 
@@ -20,6 +18,7 @@ public class Shopitem : UIItemHolder
         {
             pf.SpawnUIItem(itemHeld);
             moneys.coins -= (int)itemHeld.itemValue;
+            pf.SpawnShopItem();
             Destroy(gameObject);
         }
         else

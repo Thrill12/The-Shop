@@ -6,11 +6,15 @@ public class ItemSlot : MonoBehaviour
 {
     public BaseItem itemEquipped;
 
+    public bool shouldFlip;
+
     private SpriteRenderer rend;
+    private Sprite startSprite;
 
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        startSprite = rend.sprite;
 
         if(itemEquipped != null)
         {
@@ -20,11 +24,32 @@ public class ItemSlot : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(itemEquipped == null)
+        {
+            rend.sprite = startSprite;
+        }
+
+        if (shouldFlip)
+        {
+            if (itemEquipped != null)
+            {
+                rend.flipX = true;
+            }
+            else
+            {
+                rend.flipX = false;
+            }
+        }
+        
+    }
+
     public void EquipItem(BaseItem i)
     {
         itemEquipped = i;
         i.isEquipped = true;
-        rend.sprite = i.itemIcon;
+        rend.sprite = i.equippedSprite;
     }
 
     public void UnequipItem(BaseItem i)

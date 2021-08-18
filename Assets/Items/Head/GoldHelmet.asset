@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GoldHelmet
   m_EditorClassIdentifier: 
   itemName: Gold Helmet
-  itemIcon: {fileID: 21300000, guid: 06b51665c01aa15419a67e5999296f9f, type: 3}
+  itemIcon: {fileID: 8221628451177193175, guid: 4a2ad338a10246e4bbc27b90af999e4f, type: 3}
+  equippedSprite: {fileID: 8221628451177193175, guid: 4a2ad338a10246e4bbc27b90af999e4f, type: 3}
   itemValue: 500
   itemSlot: 0
   isEquipped: 0

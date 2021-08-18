@@ -7,6 +7,7 @@ public class PlayerItems : MonoBehaviour
     public ItemSlot head;
     public ItemSlot chest;
     public ItemSlot boots;
+    public ItemSlot hat;
 
     [Space(5)]
 
@@ -35,6 +36,18 @@ public class PlayerItems : MonoBehaviour
             else
             {
                 head.EquipItem(i);
+            }
+        }
+        else if (i.itemSlot == BaseItem.Slot.Hat)
+        {
+            if (hat.itemEquipped != null)
+            {
+                UnequipInSlot(i.itemSlot);
+                hat.EquipItem(i);
+            }
+            else
+            {
+                hat.EquipItem(i);
             }
         }
         else if (i.itemSlot == BaseItem.Slot.Chest)
@@ -70,6 +83,13 @@ public class PlayerItems : MonoBehaviour
             if (head.itemEquipped != null)
             {
                 head.UnequipItem(i);
+            }
+        }
+        else if (i.itemSlot == BaseItem.Slot.Hat)
+        {
+            if (hat.itemEquipped != null)
+            {
+                hat.UnequipItem(i);
             }
         }
         else if (i.itemSlot == BaseItem.Slot.Chest)
