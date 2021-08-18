@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e608199ecd9e534c86f5d6149554eb4, type: 3}
+  m_Name: Apple
+  m_EditorClassIdentifier: 
+  itemName: Apple
+  itemIcon: {fileID: 3767446706215961781, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
+  equippedSprite: {fileID: 3767446706215961781, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
+  itemValue: 50
+  isEquippable: 0
+  itemSlot: 0
+  plant: {fileID: 3907070599283377887, guid: 3ec14aa0880ec33489dd9d509e7c5684, type: 3}
+  isEquipped: 0

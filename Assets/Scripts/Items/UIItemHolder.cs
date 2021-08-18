@@ -19,6 +19,7 @@ public class UIItemHolder : MonoBehaviour
     [HideInInspector]
     public PrefabManager pf;
     private Planter planter;
+    public Merchant merchant;
 
     public virtual void Start()
     {
@@ -26,24 +27,31 @@ public class UIItemHolder : MonoBehaviour
 
         if (shouldRandomize)
         {
-            int rand = Random.Range(0, 4);
+            if (merchant.shouldSellItems)
+            {
+                int rand = Random.Range(0, 4);
 
-            if (rand == 0)
-            {
-                itemHeld = Instantiate(pf.heads[Random.Range(0, pf.heads.Count)]);
-            }
-            else if (rand == 1)
-            {
-                itemHeld = Instantiate(pf.chests[Random.Range(0, pf.chests.Count)]);
-            }
-            else if (rand == 2)
-            {
-                itemHeld = Instantiate(pf.boots[Random.Range(0, pf.boots.Count)]);
+                if (rand == 0)
+                {
+                    itemHeld = Instantiate(pf.heads[Random.Range(0, pf.heads.Count)]);
+                }
+                else if (rand == 1)
+                {
+                    itemHeld = Instantiate(pf.chests[Random.Range(0, pf.chests.Count)]);
+                }
+                else if (rand == 2)
+                {
+                    itemHeld = Instantiate(pf.boots[Random.Range(0, pf.boots.Count)]);
+                }
+                else
+                {
+                    itemHeld = Instantiate(pf.hats[Random.Range(0, pf.hats.Count)]);
+                }
             }
             else
             {
-                itemHeld = Instantiate(pf.hats[Random.Range(0, pf.hats.Count)]);
-            }
+                itemHeld = Instantiate(pf.plants[Random.Range(0, pf.plants.Count)]);
+            }          
         }       
 
         itemName = transform.Find("ItemName").GetComponent<TMP_Text>();
@@ -87,7 +95,20 @@ public class UIItemHolder : MonoBehaviour
         }
         else
         {
-            planter.currentlySelected = itemHeld.plant;
+            if (itemHeld.isEquipped)
+            {
+                planter.currentlySelected = null;
+                itemHeld.isEquipped = false;
+            }
+            else
+            {
+                planter.currentlySelected = itemHeld.plant;
+                itemHeld.isEquipped = true;
+                GameObject plant = Instantiate(planter.currentlySelected);
+                planter.currentlySelected = plant;
+                planter.currentlySelected.GetComponentInChildren<GrowingPlant>().plantToGive = itemHeld;
+                Destroy(gameObject);
+            }          
         }
     }
 
@@ -99,12 +120,21 @@ public class UIItemHolder : MonoBehaviour
 
     public void Unequip()
     {
-        items.UnequipItem(itemHeld);
+        if (itemHeld.isEquipped)
+        {
+            items.UnequipItem(itemHeld);
+        }
+        
     }
 
     public void Sell()
     {
-        items.gameObject.GetComponent<PlayerMoneys>().coins += (int)itemHeld.itemValue;
-        Destroy(gameObject);
+        if (pf.shop.transform.parent.transform.parent.gameObject.activeSelf == true)
+        {
+            items.gameObject.GetComponent<PlayerMoneys>().coins += (int)itemHeld.itemValue;
+            pf.GetComponent<AudioSource>().PlayOneShot(pf.audioLib.itemSold);
+            Unequip();
+            Destroy(gameObject);
+        }       
     }
 }

@@ -8,6 +8,7 @@ public class PrefabManager : MonoBehaviour
     public List<BaseItem> chests;
     public List<BaseItem> boots;
     public List<BaseItem> hats;
+    public List<BaseItem> plants;
 
     public GameObject itemInventory;
     public GameObject shopItem;
@@ -20,6 +21,15 @@ public class PrefabManager : MonoBehaviour
 
     public PlayerItems items;
 
+    public List<Shopitem> shopItems;
+
+    public AudioClipLibrary audioLib;
+
+    private void Start()
+    {
+        shopItems = new List<Shopitem>();
+    }
+
     public void SpawnUIItem(BaseItem i)
     {
         GameObject obj = Instantiate(uiItem, itemInventory.transform);
@@ -30,9 +40,11 @@ public class PrefabManager : MonoBehaviour
         items.itemsInInventory.Add(obj.GetComponent<UIItemHolder>().itemHeld);
     }
 
-    public void SpawnShopItem()
+    public void SpawnShopItem(Merchant merchant)
     {
         GameObject obj = Instantiate(shopItem, shop.transform);
         obj.GetComponent<Shopitem>().shouldRandomize = true;
+        obj.GetComponent<Shopitem>().merchant = merchant;
+        shopItems.Add(obj.GetComponent<Shopitem>());
     }
 }

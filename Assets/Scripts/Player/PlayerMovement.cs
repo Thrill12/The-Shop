@@ -31,11 +31,12 @@ public class PlayerMovement : MonoBehaviour
             }
 
             anim.SetBool("IsWalking", true);
-            
+            GetComponent<AudioSource>().enabled = true;
         }
         else
         {
             anim.SetBool("IsWalking", false);
+            GetComponent<AudioSource>().enabled = false;
         }
     }
 

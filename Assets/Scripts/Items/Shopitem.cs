@@ -14,16 +14,16 @@ public class Shopitem : UIItemHolder
 
     public void Buy()
     {
-        if(moneys.coins > itemHeld.itemValue)
+        if(moneys.coins >= itemHeld.itemValue)
         {
             pf.SpawnUIItem(itemHeld);
+            pf.GetComponent<AudioSource>().PlayOneShot(pf.audioLib.itemSold);
             moneys.coins -= (int)itemHeld.itemValue;
-            pf.SpawnShopItem();
             Destroy(gameObject);
         }
         else
         {
-            Debug.Log("Can't afford");
+            pf.GetComponent<AudioSource>().PlayOneShot(pf.audioLib.cantAfford);
         }
     }
 }
