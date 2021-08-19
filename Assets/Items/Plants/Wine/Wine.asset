@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e608199ecd9e534c86f5d6149554eb4, type: 3}
-  m_Name: BlueChest
+  m_Name: Wine
   m_EditorClassIdentifier: 
-  itemName: Blue Hoodie
-  itemIcon: {fileID: -1133706752296058015, guid: b85a5f911d38f994081ffea729c12f76, type: 3}
-  equippedSprite: {fileID: -1133706752296058015, guid: b85a5f911d38f994081ffea729c12f76, type: 3}
-  itemValue: 250
-  isEquippable: 1
-  itemSlot: 2
-  plant: {fileID: 0}
+  itemName: Wine
+  itemIcon: {fileID: 7908558994367449539, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
+  equippedSprite: {fileID: 0}
+  itemValue: 500
+  isEquippable: 0
+  itemSlot: 0
+  plant: {fileID: 5000267031511271639, guid: 367423377e9f67e4caf29e78f46e9b04, type: 3}
   isEquipped: 0

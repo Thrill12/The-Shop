@@ -18,5 +18,5 @@ MonoBehaviour:
   itemValue: 50
   isEquippable: 0
   itemSlot: 0
-  plant: {fileID: 3907070599283377887, guid: 3ec14aa0880ec33489dd9d509e7c5684, type: 3}
+  plant: {fileID: 6837746305258585453, guid: 3ec14aa0880ec33489dd9d509e7c5684, type: 3}
   isEquipped: 0

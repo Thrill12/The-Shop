@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shopitem : UIItemHolder
 {
+    public bool shouldGetDestroyed = true;
     PlayerMoneys moneys;
 
     public override void Start()
@@ -19,7 +20,11 @@ public class Shopitem : UIItemHolder
             pf.SpawnUIItem(itemHeld);
             pf.GetComponent<AudioSource>().PlayOneShot(pf.audioLib.itemSold);
             moneys.coins -= (int)itemHeld.itemValue;
-            Destroy(gameObject);
+
+            if (shouldGetDestroyed)
+            {
+                Destroy(gameObject);
+            }
         }
         else
         {

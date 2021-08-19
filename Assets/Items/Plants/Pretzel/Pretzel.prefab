@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2509408658717841023}
   - component: {fileID: -7100695559572460622}
+  - component: {fileID: -6032631556379455451}
+  - component: {fileID: 2053128842138599018}
   m_Layer: 0
   m_Name: Pretzel
   m_TagString: Untagged
@@ -44,7 +46,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 45300d96b0dec7b44b85e36defa66b0a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -128,6 +130,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6032631556379455451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000267031511271639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350618ff1e6d75143ba08d3dbecb1ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantToGive: {fileID: 11400000, guid: 3682b93d97240b0448519fd85963ada5, type: 2}
+  timeStepToGrow: 0.6
+  isReady: 0
+--- !u!61 &2053128842138599018
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5000267031511271639}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &6285816223225055232
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,8 +181,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6285816223225055294}
   - component: {fileID: 6285816223225055233}
-  - component: {fileID: 6285816223225055295}
-  - component: {fileID: 6285816223225055292}
   - component: {fileID: 1924439189114669219}
   m_Layer: 0
   m_Name: Pretzel
@@ -214,47 +255,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6285816223225055295
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6285816223225055232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 350618ff1e6d75143ba08d3dbecb1ae2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantToGive: {fileID: 11400000, guid: 3682b93d97240b0448519fd85963ada5, type: 2}
-  timeStepToGrow: 0.25
-  isReady: 0
---- !u!61 &6285816223225055292
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6285816223225055232}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!95 &1924439189114669219
 Animator:
   serializedVersion: 3

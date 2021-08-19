@@ -47,4 +47,13 @@ public class PrefabManager : MonoBehaviour
         obj.GetComponent<Shopitem>().merchant = merchant;
         shopItems.Add(obj.GetComponent<Shopitem>());
     }
+
+    public void SpawnPlantShopItem(int index)
+    {
+        GameObject obj = Instantiate(shopItem, shop.transform);
+        obj.GetComponent<Shopitem>().shouldRandomize = false;
+        obj.GetComponent<Shopitem>().shouldGetDestroyed = false;
+        obj.GetComponent<Shopitem>().itemHeld = plants[index];
+        shopItems.Add(obj.GetComponent<Shopitem>());
+    }
 }

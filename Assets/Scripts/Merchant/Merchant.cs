@@ -22,9 +22,19 @@ public class Merchant : MonoBehaviour
         {
             shopDisplay.SetActive(true);
 
-            for (int i = 0; i < 20; i++)
+            if (!shouldSellItems)
             {
-                pf.SpawnShopItem(this);
+                for (int i = 0; i < pf.plants.Count; i++)
+                {
+                    pf.SpawnPlantShopItem(i);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    pf.SpawnShopItem(this);
+                }
             }
 
             inventory.SetActive(true);

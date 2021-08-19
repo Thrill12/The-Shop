@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - CameraIgnore
-  - 
+  - Cameras
   - 
   - 
   - 
@@ -48,4 +48,7 @@ TagManager:
     locked: 0
   - name: HiddenFromCamera
     uniqueID: 1110219651
+    locked: 0
+  - name: UI
+    uniqueID: 3123100689
     locked: 0

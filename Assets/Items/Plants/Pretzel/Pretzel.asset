@@ -16,7 +16,7 @@ MonoBehaviour:
   itemIcon: {fileID: -9223125270115307831, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
   equippedSprite: {fileID: 0}
   itemValue: 15
-  isEquippable: 1
+  isEquippable: 0
   itemSlot: 0
-  plant: {fileID: 0}
+  plant: {fileID: 5000267031511271639, guid: fdbb560139dda484dba125f8cb7d4fd6, type: 3}
   isEquipped: 0

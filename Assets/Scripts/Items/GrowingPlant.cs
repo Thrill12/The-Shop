@@ -11,19 +11,21 @@ public class GrowingPlant : MonoBehaviour
     private PrefabManager pf;
     private Planter planter;
     private AudioClipLibrary audioLib;
+    private AudioSource src;
 
     private void Start()
     {
         pf = GameObject.FindGameObjectWithTag("PrefabManager").GetComponent<PrefabManager>();
-        GetComponent<SpriteRenderer>().sprite = plantToGive.itemIcon;
+        GetComponentInChildren<SpriteRenderer>().sprite = plantToGive.itemIcon;
         planter = GameObject.FindGameObjectWithTag("Player").GetComponent<Planter>();
         audioLib = planter.gameObject.GetComponentInChildren<AudioClipLibrary>();
+        src = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     public IEnumerator GrowPlant()
     {
-        GetComponentInParent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
         transform.localScale = Vector3.zero;
         while (transform.localScale.x < 1)
         {
@@ -31,10 +33,11 @@ public class GrowingPlant : MonoBehaviour
             yield return new WaitForSeconds(timeStepToGrow);
         }
         isReady = true;
-        planter.occupiedPlaces.Remove(transform.position);
-        GetComponentInParent<AudioSource>().Stop();
-        GetComponentInParent<AudioSource>().PlayOneShot(audioLib.growableReady);
-        GetComponent<Animator>().SetTrigger("Ready");
+        
+        src.Stop();
+        src.volume = 0.7f;
+        src.PlayOneShot(audioLib.growableReady);
+        GetComponentInChildren<Animator>().SetTrigger("Ready");
         yield return null;
     }
 
@@ -42,9 +45,10 @@ public class GrowingPlant : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player") && isReady)
         {
+            audioLib.gameObject.GetComponent<AudioSource>().PlayOneShot(audioLib.growablePickup);
             pf.SpawnUIItem(plantToGive);
             pf.SpawnUIItem(plantToGive);
-            GetComponentInParent<AudioSource>().PlayOneShot(audioLib.growablePickup);
+            planter.occupiedPlaces.Remove(transform.position);
             Destroy(gameObject);
         }
     }
