@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Planter : MonoBehaviour
@@ -9,6 +10,10 @@ public class Planter : MonoBehaviour
     private InputManager input;
 
     private PrefabManager pf;
+
+    public List<Vector3> occupiedPlaces;
+
+    public bool isInShop = false;
 
     private void Start()
     {
@@ -24,8 +29,16 @@ public class Planter : MonoBehaviour
 
             if (Input.GetMouseButton(0) && currentlySelected != null)
             {
-                currentlySelected.GetComponentInChildren<GrowingPlant>().StartCoroutine(currentlySelected.GetComponentInChildren<GrowingPlant>().GrowPlant());
-                currentlySelected = null;
+                if(!occupiedPlaces.Where(x => x == currentlySelected.transform.position).Any())
+                {
+                    currentlySelected.GetComponentInChildren<GrowingPlant>().StartCoroutine(currentlySelected.GetComponentInChildren<GrowingPlant>().GrowPlant());
+                    occupiedPlaces.Add(currentlySelected.transform.position);
+                    currentlySelected = null;
+                }
+                else
+                {
+                    gameObject.transform.Find("AudioClipLibrary").GetComponent<AudioSource>().Play();
+                }                
             }
             if (Input.GetMouseButton(1) && currentlySelected != null)
             {

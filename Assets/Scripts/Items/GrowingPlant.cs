@@ -9,11 +9,15 @@ public class GrowingPlant : MonoBehaviour
     public bool isReady = false;
 
     private PrefabManager pf;
+    private Planter planter;
+    private AudioClipLibrary audioLib;
 
     private void Start()
     {
         pf = GameObject.FindGameObjectWithTag("PrefabManager").GetComponent<PrefabManager>();
         GetComponent<SpriteRenderer>().sprite = plantToGive.itemIcon;
+        planter = GameObject.FindGameObjectWithTag("Player").GetComponent<Planter>();
+        audioLib = planter.gameObject.GetComponentInChildren<AudioClipLibrary>();
     }
 
     // Update is called once per frame
@@ -27,7 +31,9 @@ public class GrowingPlant : MonoBehaviour
             yield return new WaitForSeconds(timeStepToGrow);
         }
         isReady = true;
+        planter.occupiedPlaces.Remove(transform.position);
         GetComponentInParent<AudioSource>().Stop();
+        GetComponentInParent<AudioSource>().PlayOneShot(audioLib.growableReady);
         GetComponent<Animator>().SetTrigger("Ready");
         yield return null;
     }
@@ -38,6 +44,7 @@ public class GrowingPlant : MonoBehaviour
         {
             pf.SpawnUIItem(plantToGive);
             pf.SpawnUIItem(plantToGive);
+            GetComponentInParent<AudioSource>().PlayOneShot(audioLib.growablePickup);
             Destroy(gameObject);
         }
     }

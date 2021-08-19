@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu, System.Serializable]
 public class BaseItem : ScriptableObject
 {
     public string itemName;

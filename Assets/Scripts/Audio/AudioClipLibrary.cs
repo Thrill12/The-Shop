@@ -8,5 +8,5 @@ public class AudioClipLibrary : MonoBehaviour
     public AudioClip cantAfford;
     public AudioClip walk;
     public AudioClip growableReady;
-    public AudioClip growableHum;
+    public AudioClip growablePickup;
 }

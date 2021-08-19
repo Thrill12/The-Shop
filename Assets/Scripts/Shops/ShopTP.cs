@@ -20,6 +20,7 @@ public class ShopTP : MonoBehaviour
     public void TPToPlace()
     {
         player.transform.position = placeToTP.transform.position;
+        player.GetComponent<Planter>().isInShop = !player.GetComponent<Planter>().isInShop;
     }
 
     private void Update()

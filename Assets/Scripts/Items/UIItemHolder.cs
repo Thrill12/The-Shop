@@ -102,12 +102,15 @@ public class UIItemHolder : MonoBehaviour
             }
             else
             {
-                planter.currentlySelected = itemHeld.plant;
-                itemHeld.isEquipped = true;
-                GameObject plant = Instantiate(planter.currentlySelected);
-                planter.currentlySelected = plant;
-                planter.currentlySelected.GetComponentInChildren<GrowingPlant>().plantToGive = itemHeld;
-                Destroy(gameObject);
+                if (!planter.isInShop)
+                {
+                    planter.currentlySelected = itemHeld.plant;
+                    itemHeld.isEquipped = true;
+                    GameObject plant = Instantiate(planter.currentlySelected);
+                    planter.currentlySelected = plant;
+                    planter.currentlySelected.GetComponentInChildren<GrowingPlant>().plantToGive = itemHeld;
+                    Destroy(gameObject);
+                }              
             }          
         }
     }

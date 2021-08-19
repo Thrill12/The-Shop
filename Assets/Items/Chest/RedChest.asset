@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e608199ecd9e534c86f5d6149554eb4, type: 3}
   m_Name: RedChest
   m_EditorClassIdentifier: 
-  itemName: Red Plate
+  itemName: Red Hoodie
   itemIcon: {fileID: -9115526643566758266, guid: 4a2ad338a10246e4bbc27b90af999e4f, type: 3}
   equippedSprite: {fileID: 3384493420599841878, guid: b85a5f911d38f994081ffea729c12f76, type: 3}
   itemValue: 100
+  isEquippable: 1
   itemSlot: 2
+  plant: {fileID: 0}
   isEquipped: 0

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plantToGive: {fileID: 11400000, guid: 3682b93d97240b0448519fd85963ada5, type: 2}
-  timeStepToGrow: 0.25
+  timeStepToGrow: 0.5
   isReady: 0
 --- !u!61 &6689678326073055388
 BoxCollider2D:
@@ -190,7 +190,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 45300d96b0dec7b44b85e36defa66b0a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0

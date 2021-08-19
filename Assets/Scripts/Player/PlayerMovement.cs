@@ -19,17 +19,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(rb.velocity.magnitude != 0)
+        if (input.inputX < 0)
         {
-            if (rb.velocity.x < 0)
-            {
-                transform.localScale = new Vector3(-2, 2, 2);
-            }
-            else
-            {
-                transform.localScale = new Vector3(2, 2, 2);
-            }
+            transform.localScale = new Vector3(-2, 2, 2);
+        }
+        else if(input.inputX > 0)
+        {
+            transform.localScale = new Vector3(2, 2, 2);
+        }
 
+        if (rb.velocity.magnitude != 0)
+        {
             anim.SetBool("IsWalking", true);
             GetComponent<AudioSource>().enabled = true;
         }
