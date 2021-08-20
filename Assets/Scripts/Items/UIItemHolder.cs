@@ -82,7 +82,7 @@ public class UIItemHolder : MonoBehaviour
 
     public void ToggleEquip()
     {
-        if (itemHeld.isEquippable)
+        if (itemHeld is Clothing)
         {
             if (itemHeld.isEquipped)
             {
@@ -93,7 +93,7 @@ public class UIItemHolder : MonoBehaviour
                 Equip();
             }
         }
-        else
+        else if(itemHeld is Plant)
         {
             if (itemHeld.isEquipped)
             {
@@ -104,11 +104,12 @@ public class UIItemHolder : MonoBehaviour
             {
                 if (!planter.isInShop)
                 {
-                    planter.currentlySelected = itemHeld.plant;
+                    Plant plant = (Plant)itemHeld;
+                    planter.currentlySelected = plant.plant;
                     itemHeld.isEquipped = true;
-                    GameObject plant = Instantiate(planter.currentlySelected);
-                    planter.currentlySelected = plant;
-                    planter.currentlySelected.GetComponentInChildren<GrowingPlant>().plantToGive = itemHeld;
+                    GameObject plantObj = Instantiate(planter.currentlySelected);
+                    planter.currentlySelected = plantObj;
+                    planter.currentlySelected.GetComponentInChildren<GrowingPlant>().plantToGive = (Plant)itemHeld;
                     Destroy(gameObject);
                 }              
             }          
@@ -117,17 +118,17 @@ public class UIItemHolder : MonoBehaviour
 
     public void Equip()
     {
-        items.UnequipInSlot(itemHeld.itemSlot);
-        items.EquipItem(itemHeld);
+        Clothing clothe = (Clothing)itemHeld;
+        items.UnequipInSlot(clothe.itemSlot);
+        items.EquipItem((Clothing)itemHeld);
     }
 
     public void Unequip()
     {
         if (itemHeld.isEquipped)
         {
-            items.UnequipItem(itemHeld);
-        }
-        
+            items.UnequipItem((Clothing)itemHeld);
+        }        
     }
 
     public void Sell()

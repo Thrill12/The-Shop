@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    public BaseItem itemEquipped;
+    public Clothing itemEquipped;
 
     public bool shouldFlip;
 
@@ -45,14 +45,14 @@ public class ItemSlot : MonoBehaviour
         
     }
 
-    public void EquipItem(BaseItem i)
+    public void EquipItem(Clothing i)
     {
         itemEquipped = i;
         i.isEquipped = true;
         rend.sprite = i.equippedSprite;
     }
 
-    public void UnequipItem(BaseItem i)
+    public void UnequipItem(Clothing i)
     {
         i.isEquipped = false;
         itemEquipped = null;       

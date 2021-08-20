@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00ccca0c72cd4642a378474ed6d0d4b, type: 3}
+  m_Name: Paper Wizard Hat
+  m_EditorClassIdentifier: 
+  itemName: Paper Wizard Hat
+  itemIcon: {fileID: 21300000, guid: adf3870ec77e14e4480c20c3cea8aac2, type: 3}
+  itemValue: 1
+  isEquipped: 0
+  equippedSprite: {fileID: 21300000, guid: adf3870ec77e14e4480c20c3cea8aac2, type: 3}
+  itemSlot: 1

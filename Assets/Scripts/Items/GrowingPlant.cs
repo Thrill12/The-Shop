@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GrowingPlant : MonoBehaviour
 {
-    public BaseItem plantToGive;
-    public float timeStepToGrow;
+    public Plant plantToGive;
+    private float timeStepToGrow;
     public bool isReady = false;
 
     private PrefabManager pf;
@@ -20,6 +20,7 @@ public class GrowingPlant : MonoBehaviour
         planter = GameObject.FindGameObjectWithTag("Player").GetComponent<Planter>();
         audioLib = planter.gameObject.GetComponentInChildren<AudioClipLibrary>();
         src = GetComponent<AudioSource>();
+        timeStepToGrow = plantToGive.growStepTime;
     }
 
     // Update is called once per frame

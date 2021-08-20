@@ -12,7 +12,7 @@ public class PlayerItems : MonoBehaviour
     [Space(5)]
 
     public List<BaseItem> itemsInInventory;
-    public List<BaseItem> itemsEquipped;
+    public List<Clothing> itemsEquipped;
     public List<UIItemHolder> holders;
 
     [Space(5)]
@@ -24,9 +24,9 @@ public class PlayerItems : MonoBehaviour
         holders = new List<UIItemHolder>();
     }
 
-    public void EquipItem(BaseItem i)
+    public void EquipItem(Clothing i)
     {
-        if(i.itemSlot == BaseItem.Slot.Head)
+        if(i.itemSlot == Clothing.Slot.Head)
         {
             if(head.itemEquipped != null)
             {
@@ -38,7 +38,7 @@ public class PlayerItems : MonoBehaviour
                 head.EquipItem(i);
             }
         }
-        else if (i.itemSlot == BaseItem.Slot.Hat)
+        else if (i.itemSlot == Clothing.Slot.Hat)
         {
             if (hat.itemEquipped != null)
             {
@@ -50,7 +50,7 @@ public class PlayerItems : MonoBehaviour
                 hat.EquipItem(i);
             }
         }
-        else if (i.itemSlot == BaseItem.Slot.Chest)
+        else if (i.itemSlot == Clothing.Slot.Chest)
         {
             if (chest.itemEquipped != null)
             {
@@ -62,7 +62,7 @@ public class PlayerItems : MonoBehaviour
                 chest.EquipItem(i);
             }
         }
-        else if(i.itemSlot == BaseItem.Slot.Boots)
+        else if(i.itemSlot == Clothing.Slot.Boots)
         {
             if (boots.itemEquipped != null)
             {
@@ -76,30 +76,30 @@ public class PlayerItems : MonoBehaviour
         }
     }
 
-    public void UnequipItem(BaseItem i)
+    public void UnequipItem(Clothing i)
     {
-        if (i.itemSlot == BaseItem.Slot.Head)
+        if (i.itemSlot == Clothing.Slot.Head)
         {
             if (head.itemEquipped != null)
             {
                 head.UnequipItem(i);
             }
         }
-        else if (i.itemSlot == BaseItem.Slot.Hat)
+        else if (i.itemSlot == Clothing.Slot.Hat)
         {
             if (hat.itemEquipped != null)
             {
                 hat.UnequipItem(i);
             }
         }
-        else if (i.itemSlot == BaseItem.Slot.Chest)
+        else if (i.itemSlot == Clothing.Slot.Chest)
         {
             if (chest.itemEquipped != null)
             {
                 chest.UnequipItem(i);
             }
         }
-        else if (i.itemSlot == BaseItem.Slot.Boots)
+        else if (i.itemSlot == Clothing.Slot.Boots)
         {
             if (boots.itemEquipped != null)
             {
@@ -108,14 +108,19 @@ public class PlayerItems : MonoBehaviour
         }       
     }
 
-    public void UnequipInSlot(BaseItem.Slot slot)
+    public void UnequipInSlot(Clothing.Slot slot)
     {
         foreach (UIItemHolder holder in holders)
         {
-            if (holder.itemHeld.itemSlot == slot && holder.itemHeld.isEquipped == true)
+            if(holder.itemHeld is Clothing)
             {
-                holder.Unequip();
+                Clothing holderClothing = (Clothing)holder.itemHeld;
+                if (holderClothing.itemSlot == slot && holder.itemHeld.isEquipped == true)
+                {
+                    holder.Unequip();
+                }
             }
+                      
         }
     }
 }

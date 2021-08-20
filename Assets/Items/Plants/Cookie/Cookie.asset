@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e608199ecd9e534c86f5d6149554eb4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8911f7dab91a41949a1afcba19778479, type: 3}
   m_Name: Cookie
   m_EditorClassIdentifier: 
   itemName: Cookie
   itemIcon: {fileID: 5362735838549604449, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
-  equippedSprite: {fileID: 5362735838549604449, guid: 2e2242a5500d38643937b4f69e433826, type: 3}
   itemValue: 100
-  isEquippable: 0
-  itemSlot: 0
-  plant: {fileID: 5000267031511271639, guid: 5b5a4e72158fb174bac900fe2850c470, type: 3}
   isEquipped: 0
+  plant: {fileID: 5000267031511271639, guid: 5b5a4e72158fb174bac900fe2850c470, type: 3}
+  growStepTime: 0.7
